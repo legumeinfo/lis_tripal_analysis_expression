@@ -89,26 +89,26 @@ Hover the mouse over a column in the graph to view expression values. <br>
 
 // DEBUG SECTION (REMOVE LATER)  <<<<<<<<<<<<<<<
 
-//trying
-echo "<br>f-name: ".$feature->name;
-echo "<br>f-id: ".$feature->feature_id;
-echo "<br>f-sp: ".$feature->organism_id->species;
+//Testing
+    //echo "<br>f-name: ".$feature->name;
+    //echo "<br>f-id: ".$feature->feature_id;
+    //echo "<br>f-sp: ".$feature->organism_id->species;
 //echo "<br>".$feature->type_id->cv_id->name;//works
 
-$feature = chado_expand_var($feature, 'table', 'element'); //works
-echo "<br>elm-id: ".$feature->element->element_id; //works =58512
-echo "<br>ardes-id: ".$feature->element->arraydesign_id; //fails, STRANGE!!! is able to get element_id from the same table but fails for arraydesign_id(there is a single row for this feature in element table). Fails to get =39
-$element = $feature->element;
-$element = chado_expand_var($element, 'table', 'arraydesign');
-echo "<br>ardes-id: ".$element->arraydesign_id->arraydesign_id;
+    //$feature = chado_expand_var($feature, 'table', 'element'); //works
+    //echo "<br>elm-id: ".$feature->element->element_id; //works =58512
+    //echo "<br>ardes-id: ".$feature->element->arraydesign_id; //fails, STRANGE!!! is able to get element_id from the same table but fails for arraydesign_id(there is a single row for this feature in element table). Fails to get =39
+    //$element = $feature->element;
+    //$element = chado_expand_var($element, 'table', 'arraydesign');
+    //echo "<br>ardes-id: ".$element->arraydesign_id->arraydesign_id;
 
 
 //$feature = chado_expand_var($feature, 'table', 'elementresult'); //Fails
 //echo "<br>elmres-id:".$feature->element->element_id->elementresult->elementresult_id;
 
-$feature = chado_expand_var($feature, 'table', analysisfeature);
-$feature= $feature->analysisfeature;
-echo "<br>anaf-id:".$feature[1]->analysis_id;  //Fails, WHY???? (exp val 9886293, 808274)
+    //$feature = chado_expand_var($feature, 'table', analysisfeature);
+    //$feature= $feature->analysisfeature;
+    //echo "<br>anaf-id:".$feature[1]->analysis_id;  //Fails, WHY???? (exp val 9886293, 808274)
 
 
 
