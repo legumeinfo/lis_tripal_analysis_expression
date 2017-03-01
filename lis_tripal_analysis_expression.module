@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * @file
+ * This file contains all Drupal hooks for the module other than any node hooks
+ * and block hooks. Those go in the [module name].chado_node.inc file and
+ * [module_name].blocks.inc respectively
+ *
+ */
+
+/**
+//--------------------------------------------------------------------------------------- 
+STRATEGY:
+Try to replace the template for the 'Expression' panel for the module TRip-analy-exp
+    //Need hook_theme_registry_alter()  to specify a different template 
+//--------------------------------------------------------------------------------------- 
+*/
+
+
+//require('includes/lis_tripal_analysis_expression.chado_node.inc'); /*File created: Will need it for adding a new panel(name, toc) to feature node*/
+
+
+/**
+ * Implements hook_views_api().
+ *
+ * Essentially this hook tells drupal that there is views support for
+ *  for this module which then includes tripal_db.views.inc where all the
+ *  views integration code is located.
+ *
+ * @ingroup tripal_analysis_expression
+ */
+//feb-21//function lis_tripal_analysis_expression_views_api() {
+//  return array(
+//    'api' => 3.0,
+//  );
+//}
+
+
+/**
+ * hook_theme().  CAUTION: For replacing a template of another module, hook_theme() is not needed.
+ * The hook_theme_registry_alter() takes care of it.
+ *
+ 
+
+
+//TRYING TO ALTER TRIPAL_ANALYSIS_EXPRESSION TEMPLATE
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+
+//(ALSO needs to be done in lis_tripal_analysis_expression_node_view in tripal_exp_profiles.chado_node.inc)
+
+
+
+function lis_tripal_analysis_expression_theme_registry_alter(&$theme_registry) {
+  // Override the default field-collection-item.tpl.php with our own.
+  if (isset($theme_registry['tripal_feature_expression'])) {  #the original theme name to be replaced
+    $module_path = drupal_get_path('module', 'lis_tripal_analysis_expression');
+    $theme_registry['tripal_feature_expression']['path'] = $module_path.'/theme/templates';
+    //$theme_registry['tripal_feature_expression']['template'] = 'tripal_feature_expression';
+    $theme_registry['tripal_feature_expression']['template'] = 'lis_tripal_analysis_expression';
+  }
+}
+
+
+
+//EXAMPLE CODE FROM 'http://www.jeffgeerling.com/blogs/jeff-geerling/overriding-template-file'
+//function custom_theme_registry_alter(&$theme_registry) {
+//  // Override the default field-collection-item.tpl.php with our own.
+//  if (isset($theme_registry['field_collection_item'])) {
+//    $module_path = drupal_get_path('module', 'custom');
+//    $theme_registry['field_collection_item']['theme path'] = $module_path;
+//    $theme_registry['field_collection_item']['template'] = $module_path . '/templates/field-collection-item';
+//  }
+//}
+//
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *SCRATCH PAD
+ *
+ *AS IN tripal_analysis_expression module under hook_theme() items array
+ *'tripal_feature_expression' => array(
+    735       'variables' => array('node' => NULL),
+    736       'template' => 'tripal_feature_expression',
+    737       'path' => "$path/theme/templates",  //sdash-note: this $path appears to be the module path
+    738     ),
+ *
+ *
+ *
+ *AS IN tripal_analysis_expression module under hook_node_view() in tripal_analysis_expression/includes/tripal_analysis_expression.chado_node.inc
+ *
+   1349  * Implements hook_node_view().
+   1350  *
+   1351  * @ingroup tripal_analysis_expression
+   1352  *
+   1353 function tripal_analysis_expression_node_view($node, $view_mode, $langcode) {
+   1354   switch ($node->type) {
+   
+   ....
+   ....
+   case 'chado_feature':
+   1426       if ($view_mode == 'full') {
+   1427         $node->content['tripal_feature_expression'] = array(
+   1428           '#markup' => theme('tripal_feature_expression', array('node' => $node)),
+   1429           '#tripal_toc_id' => 'figure',
+   1430           '#tripal_toc_title' => 'Expression',
+   1431           '#weight' => -99,
+   1432         );
+   1433       }
+   1434       break;
+
+ *
+ *
+ *
+ */
+
+
+
+
+
+
+
+
+
