@@ -125,7 +125,7 @@ echo "<br>anaf-id:".$feature[1]->analysis_id;  //Fails, WHY???? (exp val 9886293
 //echo "<br>b. ana-id:".$analysis_id;
 
 
-dpm($variables['node']->analysis); //dpm(get_defined_vars());
+//dpm($variables['node']->analysis); //dpm(get_defined_vars());
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
