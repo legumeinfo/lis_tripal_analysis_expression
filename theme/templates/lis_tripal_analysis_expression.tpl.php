@@ -34,7 +34,6 @@ No biomaterial libraries express this feature.
 else if ($variables['json_exp']) {
 ?>
 
-<span style="color:Red"> </span>
 
 <a name="expression-top"> </a>
 <p>
