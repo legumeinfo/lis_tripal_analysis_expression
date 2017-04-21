@@ -34,9 +34,7 @@ No biomaterial libraries express this feature.
 else if ($variables['json_exp']) {
 ?>
 
-<span style="color:Red">
-   (Remove Later: This is the lis-customized-version of the template file in tripal_analysis_expression module) <br/>
-</span>
+<span style="color:Red"> </span>
 
 <a name="expression-top"> </a>
 <p>
