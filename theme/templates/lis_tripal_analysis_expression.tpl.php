@@ -25,6 +25,7 @@ else if ($variables['json_exp']) {
 ?>
 
 <!-- Page Title  -->
+<!-- Modifies from 'Expression' to 'Expression: genemodel name'  -->
 <script>
   titleLabel = "<?php echo "Expression (".$feature->name.")"; ?>";
   (function($) {
