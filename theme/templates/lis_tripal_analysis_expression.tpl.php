@@ -13,16 +13,6 @@
   $feature = $variables['node']->feature;
 ?>
 
-<!-- Page Title  -->
-<script>
-  titleLabel = "<?php echo "Expression (".$feature->name.")"; ?>";
-  (function($) {
-    $('.figure-tripal-data-pane-title.tripal-data-pane-title').html('Expression: <?php echo $feature->name?>');
-    //jQuery('.figure-tripal-data-pane-title.tripal-data-pane-title').html(titleLabel);
-  })(jQuery);    
-</script>
-
-
 <?php
   if (!$variables['has_exp'] and $variables['json_exp']) {
 ?>
@@ -33,6 +23,15 @@ No biomaterial libraries express this feature.
 
 else if ($variables['json_exp']) {
 ?>
+
+<!-- Page Title  -->
+<script>
+  titleLabel = "<?php echo "Expression (".$feature->name.")"; ?>";
+  (function($) {
+    $('.figure-tripal-data-pane-title.tripal-data-pane-title').html('Expression: <?php echo $feature->name?>');
+    //jQuery('.figure-tripal-data-pane-title.tripal-data-pane-title').html(titleLabel);
+  })(jQuery);    
+</script>
 
 
 <a name="expression-top"> </a>
